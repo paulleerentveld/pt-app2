@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  email: MyString
+  mobile: 1
+  sex: MyString
+  weight: 1
+  height: 1
+  dob: 2022-09-23
+  instructor: one
+
+two:
+  firstname: MyString
+  lastname: MyString
+  email: MyString
+  mobile: 1
+  sex: MyString
+  weight: 1
+  height: 1
+  dob: 2022-09-23
+  instructor: two
