@@ -1,50 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @instructor.firstname %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @instructor.lastname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @instructor.email %>
-</p>
-
-<p>
-  <strong>Mobile:</strong>
-  <%= @instructor.mobile %>
-</p>
-<br>
-
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
-
-
+<h1>Clients</h1>
 
 <table>
-  <caption style="text-align:centre"><h3>Linked Clients</h3></caption>
   <thead>
     <tr>
       <th>Firstname</th>
       <th>Lastname</th>
       <th>Email</th>
       <th>Mobile</th>
+      <th>Sex</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>Dob</th>
+      <th>Instructor</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @instructor.clients.each do |client| %>
+    <% @clients.each do |client| %>
       <tr>
         <td><%= client.firstname %></td>
         <td><%= client.lastname %></td>
         <td><%= client.email %></td>
         <td><%= client.mobile %></td>
+        <td><%= client.sex %></td>
+        <td><%= client.weight %></td>
+        <td><%= client.height %></td>
+        <td><%= client.dob %></td>
+        <td><%= client.instructor_id %></td>
         <td><%= link_to 'Show', client %></td>
         <td><%= link_to 'Edit', edit_client_path(client) %></td>
         <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -52,5 +37,7 @@
     <% end %>
   </tbody>
 </table>
+
 <br>
 
+<%= link_to 'New Client', new_client_path %>

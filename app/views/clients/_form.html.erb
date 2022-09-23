@@ -48,18 +48,13 @@
   
     <div class="field">
       <%= form.label :dob %>
-      <%= form.date_select :dob %>
+      <%= form.date_select :dob, :start_year => Date.current.year, :end_year => 1900 %>
     </div>
   
     <div class="field">
-      <%= form.label :Instructor %>
-      <%= form.text_field :instructor_id %>
+        <%= form.label :Instructor %>
+        <%= form.collection_select :instructor_id, Instructor.all, :id, :name, :prompt => 'Select Instructor' %>
     </div>
-  
-    <div class="field">
-    <%= form.label :exercises %>
-    <%= form.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
-  </div>
   
   
   

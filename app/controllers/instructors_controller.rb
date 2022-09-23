@@ -13,6 +13,7 @@ class InstructorsController < ApplicationController
     end
 
     def edit
+        @instructor = Instructor.find(params[:id])
     end
 
     def create
@@ -25,6 +26,7 @@ class InstructorsController < ApplicationController
     end
 
     def update
+        @instructor = Instructor.find(params[:id])
         if @instructor.update(instructor_params)
             redirect_to instructor_url(@instructor), notice: "Instructor was successfully updated."
           else
@@ -33,6 +35,7 @@ class InstructorsController < ApplicationController
     end
 
     def destroy
+        @instructor = Instructor.find(params[:id])
         @instructor.destroy
         redirect_to instructor_url, notice: "Instructor was successfully destroyed."
     end

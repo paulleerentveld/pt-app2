@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2022_09_23_015229) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.string "type"
+    t.string "workouttype"
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
