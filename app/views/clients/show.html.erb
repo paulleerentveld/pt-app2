@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @client.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @client.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @client.mobile %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @client.sex %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @client.weight %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @client.height %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @client.dob %>
+</p>
+
+<p>
+  <strong>Instructor:</strong>
+  <%= @client.instructor_id %>
+</p>
+
+<br>
+<table>
+  <caption style="text-align:centre"><h3>Workouts</h3></caption>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client.workouts.each do |workout| %>
+      <tr>
+        <td><%= workout.firstname %></td>
+        <td><%= workout.lastname %></td>
+        <td><%= link_to 'Show', workout %></td>
+        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+        <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
