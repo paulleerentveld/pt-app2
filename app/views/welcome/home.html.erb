@@ -2,3 +2,9 @@
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %>
+
+<pre>
+<%= session[:omniauth_data] %>
+</pre>
+
+<%= link_to('Log in with GitHub!', '/auth/github', method: :post) %>
