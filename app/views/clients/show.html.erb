@@ -45,6 +45,9 @@
   <%= link_to @client.instructor.name, @client.instructor %>
 </p>
 
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
+
 <br>
 <table>
   <caption style="text-align:centre"><h3>Workouts</h3></caption>
@@ -70,5 +73,4 @@
 </table>
 <br>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+

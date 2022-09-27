@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_23_015229) do
+ActiveRecord::Schema.define(version: 2022_09_27_012211) do
 
   create_table "client_workouts", force: :cascade do |t|
+    t.boolean "status"
+    t.date "date"
     t.integer "client_id", null: false
     t.integer "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -25,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_09_23_015229) do
     t.string "firstname"
     t.string "lastname"
     t.string "email"
-    t.integer "mobile"
+    t.string "mobile"
     t.string "sex"
     t.integer "weight"
     t.integer "height"
@@ -61,16 +63,23 @@ ActiveRecord::Schema.define(version: 2022_09_23_015229) do
     t.string "firstname"
     t.string "lastname"
     t.string "email"
-    t.integer "mobile"
+    t.string "mobile"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_instructors_on_email", unique: true
     t.index ["mobile"], name: "index_instructors_on_mobile", unique: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "workouts", force: :cascade do |t|
+    t.string "name"
     t.string "workouttype"
-    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

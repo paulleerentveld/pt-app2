@@ -1,4 +1,6 @@
 class WorkoutsController < ApplicationController
+    before_action :require_logged_in
+    skip_before_action :require_logged_in, only: [:index]
 
     def index
         @workouts = Workout.all

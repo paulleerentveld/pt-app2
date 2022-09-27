@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+    before_action :require_logged_in
+    #skip_before_action :require_logged_in, only: [:index]
 
     def index
         @clients = Client.all
@@ -39,12 +41,22 @@ class ClientsController < ApplicationController
         @client.destroy
         redirect_to clients_url, notice: "Client was successfully destroyed."
     end
+
+    def assign
+        @client = Client.find(params[:id])
+        @workouts = Workout.all
+
+    end
     
 
     private
 
     def client_params
       params.require(:client).permit(:firstname, :lastname, :email, :mobile, :sex, :weight, :height, :dob, :instructor_id)
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
     end
 
 end
