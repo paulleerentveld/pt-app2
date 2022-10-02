@@ -49,28 +49,34 @@
 <%= link_to 'Back', clients_path %>
 
 <br>
+
+<%= link_to 'Assign Workouts', clients_path %>
+
 <table>
   <caption style="text-align:centre"><h3>Workouts</h3></caption>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Type</th>
+      <th>Date</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @client.workouts.each do |workout| %>
+    <% @client.workouts.each do |w| %>
       <tr>
-        <td><%= workout.firstname %></td>
-        <td><%= workout.lastname %></td>
-        <td><%= link_to 'Show', workout %></td>
-        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-        <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= w.name %></td>
+        <td><%= w.workouttype %></td>
+        <td><%= w.date %></td>
+        <td><%= w.status %></td>
+        <td><%= link_to 'Show', w %></td>
+        <td><%= link_to 'Edit', edit_workout_path(w) %></td>
+        <td><%= link_to 'Destroy', w, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-
 

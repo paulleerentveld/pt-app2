@@ -10,26 +10,28 @@
         </ul>
       </div>
     <% end %>
-  
+
     <div class="field">
-      <%= form.label :workouttype %>
-      <%= form.text_field :workouttype %>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
     </div>
   
     <div class="field">
-      <%= form.label :status %>
-      <%= form.check_box :status %>
+      <%= form.label :workouttype %>
+      <%= form.select :workouttype, [["Aerobic", "Aerobic"], ["Strength", "Strength"], ["Mobility", "Mobility"], ["BodyBuilding", "BodyBuilding"]], selected: ""  %>
     </div>
   
     <div class="field">
       <%= form.label :exercises %>
       <%= form.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
-    </div>
-  
+    </div>  
+    
+
   
   
     <div class="actions">
       <%= form.submit %>
     </div>
   <% end %>
+
   

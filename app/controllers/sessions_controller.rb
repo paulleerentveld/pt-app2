@@ -13,14 +13,14 @@ class SessionsController < ApplicationController
     end
 
     def createomni
-        @user =
+        @omniuser =
           #User.find_or_create_by(uid: auth['uid']) do |u|
            User.find_or_create_by(name: auth['info']['name']) do |u|
             u.name = auth['info']['name']
             u.password = auth['uid']
           end
     
-        session[:user_id] = @user.id
+        session[:user_id] = @omniuser.id
         session[:omniauth_data] = request.env['omniauth.auth']
     
         redirect_to controller: 'welcome', action: 'home'

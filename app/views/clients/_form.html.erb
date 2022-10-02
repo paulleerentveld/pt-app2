@@ -55,6 +55,11 @@
         <%= form.label :Instructor %>
         <%= form.collection_select :instructor_id, Instructor.all, :id, :name, :prompt => 'Select Instructor' %>
     </div>
+
+    <div class="field">
+        <%= form.label :workouts %>
+        <%= form.collection_check_boxes :workout_ids, Workout.all, :id, :name %>
+    </div>
   
   
   

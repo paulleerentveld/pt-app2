@@ -14,6 +14,10 @@ class ClientsController < ApplicationController
         @client = Client.new
     end
 
+    def workouts
+        @workouts = @client.workouts
+    end
+
     def edit
         @client = Client.find(params[:id])
     end
@@ -52,11 +56,11 @@ class ClientsController < ApplicationController
     private
 
     def client_params
-      params.require(:client).permit(:firstname, :lastname, :email, :mobile, :sex, :weight, :height, :dob, :instructor_id)
+      params.require(:client).permit(:firstname, :lastname, :email, :mobile, :sex, :weight, :height, :dob, :instructor_id, workout_ids:[])
     end
 
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
-    end
+    # def require_login
+    #     return head(:forbidden) unless session.include? :user_id
+    # end
 
 end

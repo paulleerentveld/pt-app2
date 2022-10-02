@@ -6,6 +6,10 @@ class WorkoutsController < ApplicationController
         @workouts = Workout.all
     end
 
+    def search 
+        @workouts = Workout.where("name LIKE ?", "%" + params[:q] + "%")
+    end
+
     def show
         @workout = Workout.find(params[:id])
     end
@@ -47,7 +51,7 @@ class WorkoutsController < ApplicationController
     private
 
     def workout_params
-        params.require(:workout).permit(:workouttype, :status, exercise_ids:[])
+        params.require(:workout).permit(:name, :workouttype, :search, :cllient_id, exercise_ids:[])
     end
 
 

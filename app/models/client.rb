@@ -1,7 +1,8 @@
 class Client < ApplicationRecord
   belongs_to :instructor
   has_many :client_workouts
-  has_many :workouts, through: :client_workouts
+  #has_many :workouts, through: :client_workouts
+  has_many :workouts, -> { select('workouts.*, client_workouts.date as date, client_workouts.status as status') }, :through => :client_workouts
 
 
   validates :firstname, presence: true
@@ -15,6 +16,8 @@ class Client < ApplicationRecord
   validates :weight, numericality: { greater_than_or_equal_to: 20, less_than_or_equal_to: 300 }
   validates :height, numericality: { greater_than_or_equal_to: 40, less_than_or_equal_to: 250 }
 
-
+  def workout_details
+    workouts + client_workouts
+  end
 
 end
